@@ -7,7 +7,8 @@ services:
       - "5000:5000"
 
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
     environment:
       DB_HOST: postgres
@@ -28,6 +29,12 @@ services:
 
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U abdul -d house_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
 volumes:
   postgres_data:

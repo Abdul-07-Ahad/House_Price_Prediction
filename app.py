@@ -25,6 +25,7 @@ logging.basicConfig(
 app = Flask(__name__)
 app.secret_key = "my_super_secret_key"
 
+create_users_table()
 create_predictions_table()
 with open("models/house_model.pkl", "rb") as file:
     model = pickle.load(file)
