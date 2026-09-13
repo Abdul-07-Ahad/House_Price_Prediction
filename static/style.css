@@ -1,49 +1,445 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 100vh;
-
-    margin: 0;
-}
-
-.container {
-    background: white;
-
-    padding: 30px;
-
-    border-radius: 10px;
-
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-
-    width: 350px;
-}
-
-h1 {
-    text-align: center;
-}
-
-input {
-    width: 100%;
-
-    padding: 10px;
-
-    margin-top: 5px;
-    margin-bottom: 15px;
-
+* {
     box-sizing: border-box;
 }
 
-button {
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+
+/* =========================
+   NAVIGATION BAR
+   ========================= */
+
+.navbar {
+    height: 70px;
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 8%;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-brand {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #4b5563;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+
+/* =========================
+   HERO SECTION
+   ========================= */
+
+.hero {
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 20px;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1050px;
+
+    display: grid;
+    grid-template-columns: 1fr 420px;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+
+/* =========================
+   LEFT SIDE
+   ========================= */
+
+.hero-text {
+    max-width: 520px;
+}
+
+.eyebrow {
+    color: #2563eb;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.hero-text h1 {
+    font-size: 52px;
+    line-height: 1.1;
+
+    margin: 0 0 20px;
+
+    color: #111827;
+}
+
+.hero-text h1 span {
+    color: #2563eb;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.7;
+
+    color: #6b7280;
+
+    max-width: 500px;
+}
+
+
+/* =========================
+   PREDICTION CARD
+   ========================= */
+
+.prediction-card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid #e5e7eb;
+}
+
+.prediction-card h2 {
+    margin: 0 0 8px;
+
+    font-size: 25px;
+
+    color: #111827;
+}
+
+.card-description {
+    margin-top: 0;
+    margin-bottom: 28px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   FORM
+   ========================= */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #374151;
+}
+
+.form-group input {
     width: 100%;
 
-    padding: 10px;
+    padding: 13px 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 9px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.predict-button {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 5px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
 
     cursor: pointer;
 
-    font-size: 16px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.predict-button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .prediction-card {
+        max-width: 500px;
+
+        width: 100%;
+
+        margin: auto;
+    }
+}
+/* =========================
+   HISTORY PAGE
+   ========================= */
+
+.history-page {
+    min-height: calc(100vh - 70px);
+    padding: 60px 20px;
+}
+
+.history-container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.history-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.history-header h1 {
+    margin: 0 0 10px;
+    font-size: 38px;
+    color: #111827;
+}
+
+.history-description {
+    margin: 0;
+    color: #6b7280;
+}
+
+.history-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 18px 22px;
+    background: #f9fafb;
+
+    text-align: left;
+
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    color: #6b7280;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+    padding: 18px 22px;
+
+    font-size: 15px;
+
+    color: #374151;
+
+    border-bottom: 1px solid #f0f0f0;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f9fafb;
+}
+
+.price {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.new-prediction-button {
+    display: inline-block;
+
+    padding: 12px 18px;
+
+    background: #2563eb;
+    color: white;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    transition: background 0.2s, transform 0.2s;
+}
+
+.new-prediction-button:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.empty-history {
+    padding: 70px 30px;
+    text-align: center;
+}
+
+.empty-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.empty-history h2 {
+    margin: 0 0 10px;
+    color: #111827;
+}
+
+.empty-history p {
+    color: #6b7280;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   HISTORY MOBILE
+   ========================= */
+
+@media (max-width: 800px) {
+
+    .history-page {
+        padding: 40px 15px;
+    }
+
+    .history-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .history-header h1 {
+        font-size: 32px;
+    }
+
+    .history-card {
+        border-radius: 14px;
+    }
+
+    th,
+    td {
+        padding: 15px;
+    }
 }

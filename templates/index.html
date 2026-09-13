@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>House Price Predictor</title>
 
     <link rel="stylesheet"
@@ -10,45 +13,123 @@
 
 <body>
 
-<div class="container">
+    <nav class="navbar">
 
-    <h1>House Price Predictor</h1>
+        <div class="nav-brand">
+            🏠 HousePrice
+        </div>
 
-    <form action="/predict" method="POST">
+        <div class="nav-links">
 
-        <label>Area</label><br>
-        <input type="number" name="area" required><br>
+            <a href="/">Home</a>
 
-        <label>Bedrooms</label><br>
-        <input type="number" name="bedrooms" required><br>
+            {% if session.get("user_id") %}
 
-        <label>Age</label><br>
-        <input type="number" name="age" required><br>
+                <a href="/history">History</a>
+                <a href="/logout">Logout</a>
 
-        <button type="submit">Predict</button>
+            {% else %}
 
-    </form>
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
 
-</div>
-<nav>
+            {% endif %}
 
-{% if session.get("user_id") %}
+        </div>
 
-    <h3>Welcome {{ session["username"] }}</h3>
+    </nav>
 
-    <a href="/">Home</a>
-    <a href="/history">History</a>
-    <a href="/logout">Logout</a>
 
-{% else %}
+    <main class="hero">
 
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
-    <a href="/history">History</a>
+        <div class="hero-content">
 
-{% endif %}
+            <div class="hero-text">
 
-</nav>
+                <p class="eyebrow">SMART HOME ESTIMATION</p>
+
+                <h1>
+                    Predict Your
+                    <span>House Price</span>
+                </h1>
+
+                <p class="description">
+                    Enter a few details about a house and our machine
+                    learning model will estimate its price instantly.
+                </p>
+
+            </div>
+
+
+            <div class="prediction-card">
+
+                <h2>House Details</h2>
+
+                <p class="card-description">
+                    Enter the property information below.
+                </p>
+
+
+                <form action="/predict" method="POST">
+
+                    <div class="form-group">
+
+                        <label for="area">Area</label>
+
+                        <input
+                            type="number"
+                            id="area"
+                            name="area"
+                            placeholder="Enter area"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="bedrooms">Bedrooms</label>
+
+                        <input
+                            type="number"
+                            id="bedrooms"
+                            name="bedrooms"
+                            placeholder="Number of bedrooms"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="age">House Age</label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            name="age"
+                            placeholder="Age of the house"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button type="submit" class="predict-button">
+                        Predict House Price →
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
 </body>
 
 </html>
+```

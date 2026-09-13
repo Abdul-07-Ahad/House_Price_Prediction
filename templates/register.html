@@ -1,46 +1,115 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register - HousePrice</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<h1>Create Account</h1>
+    <nav class="navbar">
 
-<form action="/register" method="POST">
+        <div class="nav-brand">
+            🏠 HousePrice
+        </div>
 
-    <input
-        type="text"
-        name="username"
-        placeholder="Username"
-        required>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+        </div>
 
-    <br><br>
+    </nav>
 
-    <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required>
 
-    <br><br>
+    <main class="hero">
 
-    <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        required>
+        <div class="prediction-card">
 
-    <br><br>
+            <h2>Create Account</h2>
 
-    <button type="submit">
-        Register
-    </button>
+            <p class="card-description">
+                Create your account to start predicting house prices.
+            </p>
 
-</form>
+
+            <form action="/register" method="POST">
+
+                <div class="form-group">
+
+                    <label for="username">Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Choose a username"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit" class="predict-button">
+                    Create Account →
+                </button>
+
+            </form>
+
+
+            <p class="card-description"
+               style="margin-top: 20px; margin-bottom: 0;">
+
+                Already have an account?
+
+                <a href="/login"
+                   style="color: #2563eb; text-decoration: none; font-weight: 600;">
+                    Login here
+                </a>
+
+            </p>
+
+        </div>
+
+    </main>
 
 </body>
 
 </html>
+```

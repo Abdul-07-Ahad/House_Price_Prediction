@@ -1,45 +1,131 @@
-
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Prediction History</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>History - HousePrice</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<h1>Prediction History</h1>
+    <nav class="navbar">
 
-<table border="1">
+        <div class="nav-brand">
+            🏠 HousePrice
+        </div>
 
-<tr>
-    <th>ID</th>
-    <th>Area</th>
-    <th>Bedrooms</th>
-    <th>Age</th>
-    <th>Predicted Price</th>
-</tr>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/history">History</a>
+        </div>
 
-{% for row in rows %}
+    </nav>
 
-<tr>
 
-<td>{{ row[0] }}</td>
-<td>{{ row[1] }}</td>
-<td>{{ row[2] }}</td>
-<td>{{ row[3] }}</td>
-<td>{{ row[4] }}</td>
+    <main class="history-page">
 
-</tr>
+        <div class="history-container">
 
-{% endfor %}
+            <div class="history-header">
 
-</table>
+                <div>
+                    <p class="eyebrow">YOUR ACTIVITY</p>
 
-<br>
+                    <h1>Prediction History</h1>
 
-<a href="/">Go Back</a>
+                    <p class="history-description">
+                        View the house price predictions you have made.
+                    </p>
+                </div>
+
+                <a href="/" class="new-prediction-button">
+                    + New Prediction
+                </a>
+
+            </div>
+
+
+            <div class="history-card">
+
+                {% if rows %}
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Area</th>
+                                <th>Bedrooms</th>
+                                <th>Age</th>
+                                <th>Predicted Price</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for row in rows %}
+
+                            <tr>
+
+                                <td>#{{ row[0] }}</td>
+
+                                <td>{{ row[1] }}</td>
+
+                                <td>{{ row[2] }}</td>
+
+                                <td>{{ row[3] }}</td>
+
+                                <td class="price">
+                                    {{ row[4] }}
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                {% else %}
+
+                <div class="empty-history">
+
+                    <div class="empty-icon">📊</div>
+
+                    <h2>No Predictions Yet</h2>
+
+                    <p>
+                        You haven't made any house price predictions yet.
+                    </p>
+
+                    <a href="/" class="new-prediction-button">
+                        Make Your First Prediction
+                    </a>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </main>
 
 </body>
 
 </html>
+```
