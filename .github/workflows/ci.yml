@@ -40,7 +40,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Tag Docker image
-        run: docker tag house-price-flask:ci abdul07ahad/house-price-prediction:latest
+        run: docker tag house-price-flask:ci abdul07ahad/house-price-prediction:${{ github.sha }}
 
       - name: Push Docker image
-        run: docker push abdul07ahad/house-price-prediction:latest
+        run: docker push abdul07ahad/house-price-prediction:${{ github.sha }}
