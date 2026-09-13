@@ -2,7 +2,6 @@ venv/
 __pycache__/
 *.pyc
 .env
-kubernetes/
 
 test_db.py
 test_postgres_connection.py
