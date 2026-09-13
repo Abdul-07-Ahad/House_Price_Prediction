@@ -38,3 +38,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Tag Docker image
+        run: docker tag house-price-flask:ci abdul07ahad/house-price-prediction:latest
