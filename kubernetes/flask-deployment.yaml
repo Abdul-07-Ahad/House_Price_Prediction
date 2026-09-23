@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: abdul07ahad/house-price-prediction:66a688fd504987928f35066717e2060e779d2a51
+          image: abdul07ahad/house-price-prediction:703478e9daf23884876ef6a841fcee39e756e30e
           imagePullPolicy: IfNotPresent
 
           ports:
