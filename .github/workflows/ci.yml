@@ -8,6 +8,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -44,3 +48,14 @@ jobs:
 
       - name: Push Docker image
         run: docker push abdul07ahad/house-price-prediction:${{ github.sha }}
+
+      - name: Update Kubernetes image
+        run: |
+          sed -i "s|image: abdul07ahad/house-price-prediction:.*|image: abdul07ahad/house-price-prediction:${{ github.sha }}|" kubernetes/flask-deployment.yaml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add kubernetes/flask-deployment.yaml
+          git commit -m "Update Kubernetes image to ${{ github.sha }} [skip ci]" || echo "No changes to commit"
+          git push
