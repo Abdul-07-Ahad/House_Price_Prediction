@@ -26,8 +26,7 @@ logging.basicConfig(
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
-create_users_table()
-create_predictions_table()
+
 with open("models/house_model.pkl", "rb") as file:
     model = pickle.load(file)
 
@@ -162,4 +161,6 @@ def health():
 
 
 if __name__ == "__main__":
+    create_users_table()
+    create_predictions_table()
     app.run(host="0.0.0.0", port=5000, debug=False)
