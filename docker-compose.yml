@@ -16,6 +16,7 @@ services:
       DB_USER: abdul
       DB_PASSWORD: ${DB_PASSWORD}
       DB_PORT: 5432
+      FLASK_SECRET_KEY: ${FLASK_SECRET_KEY}
 
   postgres:
     image: postgres:16

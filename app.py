@@ -1,3 +1,4 @@
+import os
 import pickle
 import pandas as pd
 import psycopg2
@@ -23,7 +24,7 @@ logging.basicConfig(
 )
 
 app = Flask(__name__)
-app.secret_key = "my_super_secret_key"
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
 create_users_table()
 create_predictions_table()
